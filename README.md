@@ -62,6 +62,8 @@ Present original research findings, either by extending a paper found in a socia
 2) An analysis of a new dataset that asks a similar or related question as a published paper in a social science journal.
 3) An analysis of an entirely different social science question using similar quantitative research designs, upon permission of the instructor. This is a good option if you have some ideas for your thesis and want to get a head-start.
 
+|                |                            |
+|----------------|----------------------------|
 | Proposal       | Wed, April 5th 11:59pm ET  |
 | Draft Analyses | Wed, April 19th 11:59pm ET |
 | Final Report   | Wed, May 3rd 11:59pm ET    |
