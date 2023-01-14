@@ -1,18 +1,11 @@
 # Regression Analysis for Political Science [84-702] – Quantitative Social Science
 
-Prof. Jonathan Cervas 
-
--[Jonathan Cervas](mailto:Jonathan Cervas)	
-
--[http://jonathancervas.com](http://jonathancervas.com)	
-
--Location: POS 147 (Posner Hall)	
-
--Time: Wednesdays 7:00p-9:50p Eastern	
-
--Office Hours by appointment (arrange via email)	
-
--[CMU Academic Calendar](https://www.cmu.edu/hub/calendar/)	
+- [Prof. Jonathan Cervas](mailto:Jonathan Cervas)	
+- [http://jonathancervas.com](http://jonathancervas.com)	
+- Location: POS 147 (Posner Hall)	
+- Time: Wednesdays 7:00p-9:50p Eastern	
+- Office Hours by appointment (arrange via email)	
+- [CMU Academic Calendar](https://www.cmu.edu/hub/calendar/)	
 
 
 "_One can learn data analysis only by doing, not by reading_" - Kosuke Imai
@@ -20,7 +13,7 @@ Prof. Jonathan Cervas
 ## Summary: 
 How do we evaluate empirical claims about events we see around the world? Can we measure discrimination in job hiring?  What is the best way to predict election outcomes? What factors drive the onset of civil wars? Is it possible to determine what members of Congress are more or less liberal given their voting record? These are just a few of the numerous question that social scientists are tackling with quantitative data.  Beyond academia, companies and non-profits have invested heavily in data science techniques to learn about their users, platforms, and programs. Data scientists at these institutions are essentially applied social scientists and employ many of the same techniques you will learn in this course. The goal is to provide students with the foundation necessary to analyze data in their own research and to become critical consumers of statistical claims made in the news media, in policy reports, and in academic research.
 
-##Course Description: 
+## Course Description: 
 This course is required for all CMU MS-IRP students. It is the second half of a two-part sequence on methods. The work in this course reinforces that of RAPS I, and will move beyond the basics into more advance technics for understanding data. In addition to Ordinary Least Squares regression, we will consider models for different types of dependent variables (logit, probit, etc). We will also address missing data problems, text as data, spatial data, experimental designs, regression discontinuity designs, simulations, and causality more generally. We will also spend some time on prediction models and probability. Some of the material for this course will inevitably be repetitive of RAPS I, but repeated exposure can lead to a deeper understanding of complex methods.
 
 ## Objectives: 
@@ -69,8 +62,8 @@ Present original research findings, either by extending a paper found in a socia
 2) An analysis of a new dataset that asks a similar or related question as a published paper in a social science journal.
 3) An analysis of an entirely different social science question using similar quantitative research designs, upon permission of the instructor. This is a good option if you have some ideas for your thesis and want to get a head-start.
 
-| Proposal       | Wed, April 5th 11:59pm ET  |
 |----------------|----------------------------|
+| Proposal       | Wed, April 5th 11:59pm ET  |
 | Draft Analyses | Wed, April 19th 11:59pm ET |
 | Final Report   | Wed, May 3rd 11:59pm ET    |
 
