@@ -3,10 +3,15 @@
 Prof. Jonathan Cervas 
 
 -[Jonathan Cervas](mailto:Jonathan Cervas)	
+
 -[http://jonathancervas.com](http://jonathancervas.com)	
+
 -Location: POS 147 (Posner Hall)	
+
 -Time: Wednesdays 7:00p-9:50p Eastern	
+
 -Office Hours by appointment (arrange via email)	
+
 -[CMU Academic Calendar](https://www.cmu.edu/hub/calendar/)	
 
 
