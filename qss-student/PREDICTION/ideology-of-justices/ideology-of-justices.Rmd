@@ -1,0 +1,97 @@
+---
+title: "Ideology of US Supreme Court Justices"
+output:
+  pdf_document: default
+  html_document: default
+header-includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancypagestyle{plain}{\pagestyle{fancy}}
+  - \fancyhead[L]{}
+  - \fancyhead[C]{This material should not be shared beyond those who are enrolled in this class}
+---
+
+We introduced an important programming method called the *loop*.
+In this exercise, we practice using loops 
+with data on the ideological positions of United States
+Supreme Court Justices.  Just like legislators, justices make voting decisions 
+that we can use to estimate their ideological positions.  This exercise
+  is based in part on Andrew Martin and Kevin Quinn. (2002). 'Dynamic
+  Ideal Point Estimation via Markov Chain Monte Carlo for the
+  U.S. Supreme Court, 1953-1999.' *Political Analysis*, 10:2, pp.134-154.
+  
+The file `justices.csv` contains the following variables:
+
+--------------------------------------------------------------------------------
+ Name                 Description
+ -------------------- ---------------------------------------------------------
+ `term`               Supreme Court term (a year)
+ 
+ `justice`            Justice's name 
+ 
+ `idealpt`            Justice's estimated ideal point in that term
+ 
+ `pparty`             Political party of the president in that term
+ 
+ `pres`               President's name
+--------------------------------------------------------------------------------
+
+The ideal points of the justices are negative to indicate liberal 
+preferences and positive to indicate conservative preferences. 
+
+## Question 1
+
+We wish to know the median ideal point for the Court during each
+  term included in the dataset. First, calculate the median ideal point
+  for each term of the Court. Next, generate a plot
+  with term on the horizontal axis and ideal point on the vertical axis. 
+  Include a dashed horizontal line at zero to indicate a "neutral"
+  ideal point. Be sure to include informative axis labels
+  and a plot title.
+
+## Question 2
+
+Next, we wish to identify the name of the justice
+  with the median ideal point **for each term**. Which justice had the median
+  ideal point in the most (potentially
+  nonconsecutive) terms? How long did this justice serve on the Court overall?
+  What was this justice's average ideal point over his/her entire
+  tenure on the Court?
+
+## Question 3
+
+We now turn to the relationship between Supreme Court
+  ideology and the president. Specifically, we want to see how
+  the ideology of the Supreme Court changes over the course of each president's
+  time in office. Begin by creating two empty
+  'container' vectors: one to hold Democratic presidents, 
+  and another for Republican presidents. Label each vector with the presidents' names. 
+  
+## Question 4
+
+Next, for each Democratic president, calculate the shift in Supreme
+  Court ideology by subtracting the Court's median ideal point in the 
+  president's first term from its median ideal point in the president's last
+  term. Use a loop to store these values in your Democratic container vector. 
+  Repeat the same process for Republican presidents. 
+
+## Question 5
+
+What was the mean and standard deviation of the Supreme Court
+  ideology shifts you just calculated when looking only at the 
+  Democratic presidencies? What about the Republican presidencies?
+  Which Republican president's tenure had the largest conservative 
+  (positive) shift on the Court? Which Democratic president's tenure
+  had the largest liberal (negative) shift? 
+
+## Question 6
+
+Create a plot that shows the median Supreme Court ideal point
+  over time.  Then, add lines for the ideal points of each unique justice
+  to the same plot. The color of each line should be red if the 
+  justice was appointed by a Republican and blue if he or she was appointed
+  by a Democrat. (You can assume that when a Justice first appears in the 
+  data, they were appointed by the president sitting during that term.)
+  Label each line with the justice's last name.  Briefly comment on the
+  resulting plot.
+

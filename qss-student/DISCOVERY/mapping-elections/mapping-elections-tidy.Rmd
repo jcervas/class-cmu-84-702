@@ -1,0 +1,58 @@
+---
+title: "Mapping US Presidential Election Results over Time"
+output:
+  pdf_document: default
+  html_document:
+    fig_caption: yes
+header-includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancypagestyle{plain}{\pagestyle{fancy}}
+  - \fancyhead[L]{}
+  - \fancyhead[C]{This material should not be shared beyond those who are enrolled in this class}
+---
+The partisan identities of many states have been stable over time. For example, Massachusetts is a solidly "blue" state, having pledged its electoral votes to the Democratic candidate in 9 out of the last 10 presidential elections (as of 2021). On the other extreme, Arizona's electoral votes went to the Republican candidate in 8 of the same 10 elections. Still, geography can occasionally be a poor predictor of presidential elections. For instance, in 2008, typically red states -- including North Carolina, Indiana, and Virginia -- helped elect Barack Obama to the presidency.
+
+Table: County-Level US Presidential Election Data
+
+ Name                 Description
+ -------------------- --------------------------------------------------------------------------------
+ `state`              Full name of 48 states (excluding Alaska, Hawaii, and the District of Columbia)
+ `county`             County name
+ `year`               Election year
+ `rep`                Popular votes for the Republican candidate
+ `dem`                Popular votes for the Democratic candidate
+ `other`              Popular votes for other candidates
+ 
+In this exercise, we will again map the US presidential election results for 48 states. However, our data will be more detailed in two respects. First, we will analyze data from 14 presidential elections from 1960 to 2012, allowing us to visualize how the geography of party choice has changed over time. Second, we will examine election results at the county level, allowing us to explore the spatial distribution of Democratic and Republican voters within states. The data file is available in CSV format as `elections.csv`. Each row of the data set represents the distribution of votes in that year's presidential election from each county in the United States. The table above presents the names and descriptions of variables in this data set.
+
+## Question 1
+
+We begin by visualizing the outcome of the 2008 US presidential election at the county level. Begin with Massachusetts and Arizona and visualize the county-level outcome by coloring counties based on the two-party vote share. The color should range from pure blue (100\% Democratic) to pure red (100\% Republican) using the RGB color scheme. Use the `county` database with the `map_data()` function. Provide brief comments on the maps.
+
+## Question 2
+
+Next visualize the 2008 county-level election results across the United States as a whole. Briefly comment on what you observe.
+
+## Question 3
+
+We now examine how the geographical distribution of US presidential election results has changed over time at the county-level. Starting with the 1960 presidential election, which saw Democratic candidate John F. Kennedy prevail over Republican candidate Richard Nixon, use animation to visualize the county-level election returns for each presidential election up to 2012. Base your code on what you programmed to answer the previous question. You may need to install additional packages (e.g. `transformr`) for your animation to work and it may take a long time to render.
+
+## Question 4
+
+In this exercise, we quantify the degree of partisan segregation for each state. We consider a state to be politically segregated if Democrats and Republicans tend to live in different counties. A common way to quantify the degree of residential segregation is to use the *dissimilarity index*. This index is given by the following formula,
+
+  $$
+    \text{dissimilarity index} =  \frac{1}{2} \sum_{i=1}^N \Big|\Big(\frac{d_i}{D} - \frac{r_i}{R} \Big)\Big|.
+  $$
+  
+In the formula, $d_i$ ($r_i$) is the number of Democratic (Republican) votes in the $i$th county and $D$ ($R$) is the total number of Democratic (Republican) votes in the state. $N$ represents the number of counties. This index measures the extent to which Democratic and Republican votes are evenly distributed within states. It can be interpreted as the percentage of one group that would need to move in order for its distribution to match that of the other group. Using data on Democratic and Republican votes from the 2008 presidential election, calculate the dissimilarity index for each state. Which states are among the most (least) segregated according to this measure? Visualize the result as a map. Briefly comment on what you observe.
+
+## Question 5
+
+Another way to compare political segregation across states is to assess whether counties within a state are highly unequal in terms of how many Democrats or Republicans they have. For example, a state would be considered segregated if it had many counties filled with Democrats and many with no Democrats at all. In Chapter 3, we considered the Gini coefficient as a measure of inequality (see Section 3.6.2). Calculate the Gini coefficient for each state in 2008 based on the percentage of Democratic votes in each county. Give each county the same weight, disregarding its population size. Which states have the greatest (or lowest) value of the index?  Visualize the result using a map. What is the correlation between the Gini index and the dissimilarity index you calculated above? How are the two measures conceptually and empirically different?  Briefly comment on what you observe and explain the differences between the two indexes. To compute the Gini index, use the `ineq()` function in the `ineq` package by setting its argument `type` to `"Gini"`.
+
+## Question 6
+
+Lastly, we examine how the degree of political segregation has changed in each state over time. Use animation to visualize these changes. Briefly comment on the patterns you observe.
+

@@ -1,0 +1,73 @@
+---
+title: "Sources of Empathy in the Circuit Courts "
+output: 
+  pdf_document: default
+  html_document: default
+header-includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancypagestyle{plain}{\pagestyle{fancy}}
+  - \fancyhead[L]{}
+  - \fancyhead[C]{This material should not be shared beyond those who are enrolled in this class}
+---
+
+In this exercise, we will analyze the relationship between various demographic traits and pro-feminist voting behavior among circuit court judges. In a recent paper, Adam N. Glynn and Maya Sen argue that having a female child causes circuit court judges to make more pro-feminist decisions. The paper can be found at: 
+
+Glynn, Adam N., and Maya Sen. (2015). ["Identifying Judicial Empathy: Does Having Daughters Cause Judges to Rule for Women's Issues?."](https://doi.org/10.1111/ajps.12118) *American Journal of Political Science* Vol. 59, No. 1, pp. 37--54.
+
+The dataset `dbj.csv` contains the following variables about individual judges:
+
+ -------------------------------- ----------------------------------------------------------
+ Name                             Description
+ -------------------------------- ----------------------------------------------------------
+ `name`                           The judge’s name
+ 
+ `child`                          The number of children each judge has.
+ 
+ `circuit.1`                      Which federal circuit the judge serves in.
+ 
+ `girls`                          The number of female children the judge has.
+ 
+ `progressive.vote`               The proportion of the judge’s votes on women’s issues which 
+                                  were decided in a pro-feminist direction.
+                                  
+ `race`                           The judge’s race (`1` = white, `2` = African-American, 
+                                  `3` = Hispanic, `4` = Asian-American).
+                                  
+ `religion`                       The judge’s religion (`1` = Unitarian, `2` = Episcopalian, `3` = Baptist, 
+                                  `4` = Catholic, `5` = Jewish, `7` = Presbyterian, `8` = Protestant, 
+                                  `9` = Congregationalist, `10` = Methodist, `11` = Church of Christ, 
+                                  `16` = Baha'i, `17` = Mormon, `21` = Anglican, `24` = Lutheran, `99` = unknown). 
+                                  
+ `republican`                     Takes a value of `1` if the judge was appointed by a Republican president, `0` otherwise.
+                                  Used as a proxy for the judge’s party.
+                                  
+ `sons`                           The number of male children the judge has.
+ 
+ `woman`                          Takes a value of `1` if the judge is a woman, `0` otherwise.
+ 
+ `X`                              Indicator for the observation number.
+ 
+ `yearb`                          The year the judge was born.
+ -------------------------------------------------------------------------------------------
+ 
+## Question 1
+
+Load the `dbj.csv` file. Find how many judges there are in the dataset, as well as the gender and party composition of our dataset. Is the party composition different for male and female judges? Additionally, note that our outcome in this exercise will be the proportion of pro-feminist rulings. What is the range of this variable (`progressive.vote`)? 
+
+## Question 2
+
+Next, we consider differences between some groups. For each of the four groups (Republican men/women, Democratic men/women) defined by gender and partisanship, create a boxplot (using a single command) that illustrates the differences in `progressive.vote`.  Briefly interpret the results of the analysis. For example, do any of the results surprise you? Does it appear that partisanship, gender, or both contribute to progressive voting patterns? Should we interpret any of these effects causally? Why or why not?
+
+## Question 3
+
+Create a new binary variable which takes a value of `1` if a judge has *at least* one child (that is, any children at all), `0` otherwise. Then, use this variable to answer the following questions. Are Republicans and Democrats equally likely to be parents (that is, have at least one child)? Do judges with children vote differently than judges without?  If so, how are they different? Do republican and democratic parents vote differently on feminist issues?
+
+## Question 4
+
+What is the difference in the proportion of pro-feminist decisions between judges who have at least one daughter and those who do not have any?  Compute this difference in two ways; (1) using the entire sample, (2) separately by the number of children judges have (only considering judges that have 3 children or less).  What assumptions are required for us to interpret these differences as causal estimates?
+
+## Question 5
+
+Next, we are going to consider the design of this study. The original authors assume that conditional on the number of children a judge has the number of daughters is random (as we did in the previous question).  Indeed, this is the assumption that would justify the analysis of the previous question. For example, among the judges who have two children, the number of daughters -- either `0`, `1`, or `2` -- has nothing to do with the (observed or unobserved) pre-treatment characteristics of judges.  Is this assumption reasonable?  Is there a scenario under which this assumption can be violated?  Do the data support the assumption?
+

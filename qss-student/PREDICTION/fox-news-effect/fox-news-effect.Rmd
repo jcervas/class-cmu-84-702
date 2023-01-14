@@ -1,0 +1,155 @@
+---
+title: "The Fox News Effect"
+output:
+  pdf_document: default
+  html_document: default
+header-includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancypagestyle{plain}{\pagestyle{fancy}}
+  - \fancyhead[L]{}
+  - \fancyhead[C]{This material should not be shared beyond those who are enrolled in this class}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(error=FALSE,comment='')
+```
+ 
+
+Recently, many scholars have been interested in quantifying the effect
+of the national news media on the behavior of electorate.
+Understanding how the national media environment affects the election
+results is critically important, but also notoriously difficult. In
+particular, even if an association between media coverage and election
+outcomes exists, it is difficult to identify whether this association
+is due to the media's influence over the voters or the result of the
+media adjusting its contents to the preferences of voters.
+
+In this exercise, we will consider the entry of the Fox News Channel
+(hereafter Fox News) into the television market in the late
+1990s. This exercise is based on the following study: Stefano
+  DellaVigna and Ethan Kaplan (2007). ["The Fox News Effect: Media
+  Bias and Voting."](https://doi.org/10.1162/qjec.122.3.1187) *Quarterly Journal of Economics*,
+  122:3, pp.1187-1234.  
+  
+Note that due to the nature of
+negotiations between cable companies and television networks, adding a
+new channel to the line-up of a cable company may take a long time.
+For this reason, in contrast to what many people might expect, the Fox
+News was not able to enter conservative media markets first.  We will
+be looking at some of the differences between the towns that initially
+did not receive Fox News, and those that did.  The data set is in the
+csv file `foxnews.csv`. It contains information for 10,126 towns
+across 28 states in the United States:
+
+--------------------------------------------------------------------------------
+ Name                 Description
+ -------------------- ---------------------------------------------------------
+ `town`               Town name
+ 
+ `state`              State in which the town is located
+ 
+ `subrf2000`          Share of Fox News subscribers in 2000
+ 
+ `gopvoteshare2000`   Two-party vote share for the Republicans (2000 Presidential 
+                      election)
+ 
+ `gopvoteshare1996`   Two-party vote share for the Republicans (1996 Presidential 
+                      election)
+ 
+ `gopvoteshare1992`   Two-party vote share for the Republicans (1992 Presidential 
+                      election)
+ 
+ `college1990`        Proportion of population with a college degree in 1990 
+ 
+ `male1990`           Proportion of male population in 1990
+ 
+ `black1990`          Proportion of black population in 1990
+ 
+ `hisp1990`           Proportion of hispanic population in 1990
+ 
+ `income1990`         Median income in 1990
+ 
+ `logincome1990`      Median income in 1990 on the logarithmic scale 
+--------------------------------------------------------------------------------
+
+
+## Question 1
+
+We will investigate whether there are any systematic differences
+  in the distribution of some key pre-treatment variables
+  (`college1990`, `black1990`, `hisp1990`, `male1990`, `logincome1990`)
+  between towns that received Fox News as compared to those that did
+  not. First, create a new variable called `foxnews2000` that
+  takes the value of 1 if the share of Fox News subscribers in a given
+  town is strictly larger than 0 and equals 0 otherwise.  Create five
+  Quantile-Quantile plots to assess the similarity of the
+  distributions for towns with and without subscribers across the five
+  variables (`college1990`, `black1990`, `hisp1990`, `male1990`,
+    `logincome1990`). Interpret the results. Are there any consistent
+  patterns of differences between the two groups of towns? What do the
+  plots tell you about our ability to make causal inferences regarding
+  the effect of Fox News on the election outcome?
+
+## Question 2
+
+We further examine whether there are any clear differences
+  between those towns that did receive Fox News and those that did
+  not.  To do this, apply the $k$-means algorithm with two clusters to
+  the five variables you analyzed in the previous question.  Be sure
+  to remove any missing values and scale each variable so that their
+  means are zero and standard deviations are one, before applying the
+  algorithm.  What is the distribution of the clusters with respect to
+  whether or not towns received Fox News?  What are the
+  characteristics of each cluster?  Explain how this analysis answers
+  the question about our ability to make causal inferences about the
+  electoral effect of Fox News.
+
+## Question 3
+
+We begin to examine the relationship between 
+  the exposure to Fox News in 2000 and the change in the GOP's vote share 
+  from the 1996 to the 2000 Presidential election. First, create a new 
+  variable that measures the difference between the Republican vote share 
+  in 2000 and in 1996.  Compute the correlation between this new variable 
+  and `subrf2000` and provide an interpretation of the result. 
+  
+## Question 4
+
+We now estimate the causal effect of Fox News on the
+  Republicans' vote share. For this question, use `foxnews2000`
+  to measure exposure to Fox News. Interpret the results. What
+  estimation strategy did you use to identify this causal effect? What
+  is the assumption required for this analysis to be valid?  Interpret
+  this assumption in the context of this particular question. In your
+  view, how credible is this assumption?  Use the 1992 and 1996
+  election outcomes, both of which took place before the creation of the Fox News
+  channel, to probe the credibility of the assumption.
+
+## Question 5
+
+We further divide the towns that received Fox News into three
+  groups based on the share of Fox News subscribers.  Among the towns
+  who received Fox News, the 'High exposure' group represents the
+  group of towns whose share of subscribers is greater than or equal
+  to the 66 percentile (among those who received Fox News).  In
+  contrast, the 'Low exposure' group represents the group of towns
+  whose share of subscribers is less than or equal to the 33
+  percentile (among those who received Fox News).  Conduct the same
+  analysis as in the previous question but separately for the 'High
+  exposure' and 'Low exposure' groups where the control group is
+  the 'No exposure' group.  Interpret the results.
+  
+## Question 6
+
+Finally, we consider the effect of having access to Fox News (as
+  measured by `foxnews2000`) on the Republican vote share for
+  each state.  Repeat the analysis you have done in Question 4 for
+  each state and compute a state-specific estimate of the Fox News
+  effect (whenever possible). Create a histogram of state-specific
+  effects to examine how much the magnitude of the Fox News effect
+  varies across states.  Interpret the results.  Finally, compare the
+  average effect across states with the estimate you obtained in
+  Question 4. What does this comparison suggest about the validity of
+  the assumption made in Question 4?
+  

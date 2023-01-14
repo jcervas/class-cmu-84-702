@@ -1,0 +1,95 @@
+---
+title: "Children of Parents with Same-Sex Relationship"
+output:
+  html_document:
+    df_print: paged
+header-includes:
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancypagestyle{plain}{\pagestyle{fancy}}
+- \fancyhead[L]{}
+- \fancyhead[C]{This material should not be shared beyond those who are enrolled in
+  this class}
+---
+
+Are children of parents who have same-sex relationships different?  The New Family Structures Study (NFSS) sampled American young adults (aged 18-39) who were raised in various types of family arrangements. A sociologist, Mark Regnerus, published the debut article analyzing data from the NFSS in 2012 and concluded that young adults raised by a parent who had a same-sex romantic relationship fared worse on a majority of 40 different outcomes, compared to six other family-of-origin types. 
+
+The controversial initial findings from the study were soon revisited and challenged by various scholars, including Cheng and Powell (2015) and Rosenfeld (2015). This controversy was at the heart of evidence presented in the recent Supreme Court case that struck down the Defense of Marriage Act and legalized gay marriage across the US. In 2015, the American Sociological Association filed an amicus brief with the Supreme Court stating that the initial study by Regnerus in 2012 "cannot be used to argue that children of same-sex parents fare worse than children  of  different-sex parents" because "the paper never actually studied children raised by same-sex parents."  This exercise is adapted from the initial study, along with two response papers: 
+
+- Regnerus, Mark. 2012. "[How different are the adult children of parents who have same-sex relationships? Findings from the New Family Structures Study](http://dx.doi.org/10.1016/j.ssresearch.2012.03.009)." *Social Science Research*, Vol. 41, pp. 752–770. 
+
+- Cheng, Simon & Powell, Brian. 2015. "[Measurement, methods, and divergent patterns: Reassessing the effects of same-sex parents](http://dx.doi.org/10.1016/j.ssresearch.2015.04.005)." *Social Science Research*, 52, pp. 615 - 626.
+
+- Rosenfeld, Michael J. 2015. "[Revisiting the Data from the New Family Structure Study: Taking Family Instability into Account](http://dx.doi.org/10.15195/v2.a23)." *Sociological Science*, 2, pp. 478-501.
+
+To simplify the analysis, we focus on three mutually exclusive groups of household settings, used in the original study by Regnerus (we use the same names that Regnerus did in his original study). These are already coded and available in the data set: `ibf` if the respondent lived with mother and father from age 0 to 18 and their parents are still married at the time of the survey (referred to as "intact biological families"); `lm` if the respondent's mother had a same-sex romantic relationship; `gd` if the respondent's father had a same-sex romantic relationship; and `other` if the respondent belongs to neither the `ibf` nor same-sex families. 
+
+We focus mainly on two outcomes of interest: 1) level of depression of the respondent, measured by the CES-D depression index and 2) whether the respondent is currently on public assistance.  The data set is the file `nfss.csv`. Variables in this data set are described below:
+
+ Name                             Description
+ -------------------------------- ----------------------------------------------------------
+ `depression`                     Scale ranges continuously from 1-4 with higher numbers indicating more symptoms of
+                                  depression, as measured by the CES-D depression index
+ `welfare`                        1 if currently on public assistance, 0 otherwise
+ `ibf`                            1 if lived in intact biological family, 0 otherwise
+ `lm`                             1 if mother had a same-sex romantic relationship, 0 otherwise
+ `gd`                             1 if father had a same-sex romantic relationship, 0 otherwise
+  `other`                         1 if neither IBF nor had parents with same-sex relationship, 0 otherwise
+  `age`                           Age in years
+  `female`                        1 if female; 0 otherwise
+  `educ_m`                        Mother's education level: `below hs`, `hs`, `some college` and `college and above`
+  `white`                         1 if non-Hispanic white; 0 otherwise
+  `foo_income`                    Respondent's estimate of income of family-of-origin while growing up
+                                  (categorical variable with 7 income categories)
+  `ytogether`                     Number of years respondent lived with both parent and his/her same-sex partner;
+                                  `NA` for respondents in `ibf` and `other`
+ `ftransition`                    Number of childhood family transitions
+
+## Question 1
+
+We begin by comparing respondents in intact biological families (`ibf`) with those whose mother had a same-sex relationship (`lm`), as Regnerus did in his original study. 
+
+a. What is the mean level of depression, respectively, for respondents in `ibf` versus `lm` families? Construct a 95% confidence interval around each estimate. Note that depression measure is missing for some respondents, which need to be removed before computing its mean.
+
+b. We want to examine if young adults growing up in `lm` families have different levels of depression from those growing up in `ibf`. Conduct a two-sided hypothesis test, using 5% as the significance level. Make sure to state your null hypothesis and alternative hypothesis explicitly.
+
+c. Can we claim that having a mother who had a same-sex relationship causes young adult children to be more depressed? Why or why not?  
+
+## Question 2
+
+Now we use regression models to estimate the difference in depression levels among young adults raised in different family arrangements. 
+
+a. Run a linear regression to estimate the difference in depression level among the four groups (`lm`, `gd`, `ibf`, `other`). Use `ibf` as the reference group. *Based on the results from the regression*: What is the estimated difference in depression level between `lm` and `ibf`? How does it compare to your finding in Question 1a? What is the estimated average depression level among those in `ibf`? How does it compare to your finding in Question 1a? What is the estimated average depression level among young adults in `gd`?
+
+b. Following Regnerus (2012), add several variables to the regression model in part a, including age, gender, mother's education, race (non-Hispanic white or not), and perceived family of origin income. Interpret the coefficients on `lm`, `gd` and `other` in relation to the scale of the outcome variable. Are these coefficients different from your results in part a? Why? 
+
+c. What is the predicted depression level for a 28-year old, non-Hispanic white, male respondent growing up in `ibf` and whose mother had "some college" education and whose perceived family-of-origin income is 40 to 75k? What about a person with the same characteristics but from an `other` family group?
+
+## Question 3
+
+Regnerus describes the results of this study as showing that young adults "*raised by*" parents in same-sex relationships fare differently from other young adults. Cheng and Powell (2015) used calendar data that was included in the original NFSS study but not used in the Regnerus paper to examine how many years the young adults categorized in `lm` and `gd` groups actually lived with their parent and the parent's same-sex partner from age 0 to 18. This information is recorded by the variable `ytogether` in the data set provided. Note: the variable is missing for young adults in `ibf` and `other` because they do not have a parent with same-sex relationship.
+
+a. Create two histograms, one for `lm` and the other for `gd`, to show the distribution of `ytogether` for each group. Make sure to set the bin width to 1 year. Interpret the histograms. Does your finding strengthen or weaken Regnerus' claim that his results show that children raised by same-sex parents are different? Justify your answer.
+
+b. Do young adults in `lm` families who actually lived with the same-sex couple have different levels of depression from those growing up in `ibf`? Remove young adults who have never lived with their mother and her same-sex partner from the `lm` group. Then repeat the analysis in Question 1b. Do your conclusions change?
+
+c. Suppose that the population average difference in depression scale is 0.2 between two populations, and that this difference has a standard deviation of $\sqrt{2}$. Using the correct sample sizes for the variables that you used in part b (those in the `lm` group who actually lived with their parent's same-sex partner and those in the `ibf` group), compute the probability of failing to reject the null hypothesis when the null hypothesis is false (Type II error). To answer this question, you may use a Monte Carlo simulation or solve it analytically. What is the implication of your result for your conclusion in part b? *Hint: To run a Monte Carlo simulation, suppose data for each group are generated from a normal distribution, one with mean 0 and standard deviation 1, and the other with mean 0.2 and standard deviation 1. How many times out of your total number of simulation do you fail to reject the null hypothesis?* 
+
+## Question 4
+
+Rosenfeld (2015) challenged the findings from Regnerus by showing that family instability--adult household members moving into and out of the child's household--explains most of the negative outcomes that had been attributed to same-sex parents. In the data set, we have included `ftransition` variable which was used by Rosenfeld to measure number of family transitions. For this question we will focus on a different outcome: the proportion of respondents on welfare.
+
+a. Compute the mean number of family transitions of each group (`lm`, `gd`, `other`, `ibf`). Further examine the data by using box plots. Describe your findings. According to your findings, do you think Intact Biological Families (`ibf`) is the best comparison group for studying the effect of having a parent who had same-sex relationship? Why or why not? 
+
+b. Restrict the sample to young adults with stable families (0 family transitions) only. Combine the `gd` and `lm` groups into one group `ss` for young adults with at least one parent who had a same-sex relationship. What is the proportion on public assistance, respectively, among those in `ibf` vs. `ss` families? Is the proportion on public assistance significantly different between the two groups? Conduct a two-sided hypothesis test, using 5% as the significance level.
+
+## Question 5
+
+How reliable is the hypothesis test conducted in Question 4b? 
+
+a. What is the power of the two-sided test in Question 4b given the sample sizes (12 for stable SS families and 910 for IBF) and expected proportions on welfare for each group (0.25 for stable SS families and 0.15 for IBF)? In other words, what is the probability of rejecting the null hypothesis when the null hypothesis is false? 
+
+b. Suppose you are able to design a new study and you expect the proportion on welfare for `ibf` and stable `ss` families the same as those in Question 4b (0.25 for stable SS families and 0.15 for IBF). What is the minimum sample size (in each group) necessary to detect a statistically significant difference with 90% power? Assume equal sample size for stable `ss` and `ibf` families.
+
+c. Given your answer above, discuss some of the challenges that Regnerus likely faced in trying to collect nationally-representative data comparing adults raised in same-sex households and those that were not? Why might this study be more successful, in terms of sampling the target populations, in 15-20 years? Be concise in your answer. 
+

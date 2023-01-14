@@ -1,0 +1,152 @@
+---
+title: "Voting in the United Nations General Assembly"
+output: 
+  pdf_document: default
+  html_document: default
+header-includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancypagestyle{plain}{\pagestyle{fancy}}
+  - \fancyhead[L]{}
+  - \fancyhead[C]{This material should not be shared beyond those who are enrolled in this class}
+---
+
+
+Like legislators in the US Congress, the member states of the United
+Nations (UN) are politically divided on many issues such as trade,
+nuclear disarmament, and human rights.  During the Cold War, countries
+in the UN General Assembly tended to split into two factions: one led
+by the capitalist United States and the other by the communist Soviet
+Union.  In this exercise, we will analyze how states' ideological
+positions, as captured by their votes on UN resolutions, have changed
+since the fall of communism.
+
+This exercise is based on Michael A. Bailey, Anton Strezhnev, and 
+Erik Voeten. "Estimating Dynamic State Preferences from United Nations Voting Data."
+ *Journal of Conflict Resolution*, August 2015.
+
+The data is called `unvoting.csv` and the variables are:
+
+--------------------------------------------------------------------------------
+ Name                 Description
+ -------------------- ----------------------------------------------------------
+ `CountryName`        The name of the country
+ 
+ `idealpoint`         Its estimated ideal point
+ 
+ `Year`               The year for which the ideal point is estimated
+ 
+ `PctAgreeUS`         The percentage of votes that agree with the US 
+                      on the same issue
+ 
+ `PctAgreeRUSSIA`     The percentage of votes that agree with Russia/the Soviet 
+                      Union on the same issue
+--------------------------------------------------------------------------------
+
+
+In the analysis that follows, we measure state preferences in two
+ways. Note that the data for 1964 are missing due to the absence of
+roll call data. 
+
+First, we can use the percentage of votes by each country that
+coincide with votes on the same issue cast by the two major Cold War
+powers: the United States and the Soviet Union. For example, if a
+country voted for ten resolutions in 1992, and if its vote matched the
+United States's vote on exactly six of these resolutions, the variable
+`PctAgreeUS` in 1992 would equal 60 for this country. 
+
+Second, we
+can also measure state preferences in terms of numerical ideal points.  
+These ideal
+points capture what international relations scholars have called
+countries' *liberalism* on issues such as political freedom,
+democratization, and financial liberalization. The two measures are
+highly correlated, with larger (more liberal) ideal points
+corresponding to a higher percentage of votes that agree with the US.
+
+## Question 1
+
+We begin by examining how the distribution of state ideal points
+   has changed since the end of communism. Plot the distribution of
+   ideal points separately for 1980 and 2000 - about ten years before
+   and after the fall of the Berlin Wall, respectively.  Add median to
+   each plot as a vertical line.  How do the two distributions differ?
+   Pay attention to the degree of polarization and give a brief
+   substantive interpretation of the results. Use the `quantile`
+   function to quantify the patterns you identified.
+
+## Question 2
+
+Next, examine how the number of countries voting with the US has
+  changed over time. Plot the average percent agreement with US across
+  all counties over time.  Also, add the average percent agreement
+  with Russia as another line for comparison.  Does the US appear to
+  be getting more or less isolated over time, as compared to Russia?
+  What are some countries that are consistently pro-US?  What are the
+  most pro-Russian countries?  Give a brief substantive interpretation
+  of the results.
+
+## Question 3
+
+One problem of using the percentage of votes that agree with the
+  US or Russia as a measure of state preferences is that the
+  ideological positions, and consequently the voting patterns, of the
+  two countries might have themselves changed over time.  This makes
+  it difficult to know which countries' ideological positions have
+  changed.  Investigate this issue by plotting the evolution of the
+  two countries' ideal points over time. Add the yearly median ideal
+  point of all countries. How might the results of this analysis
+  modify (or not) your interpretation of the previous analysis?
+
+## Question 4
+
+Let's examine how countries that were formerly part of the
+  Soviet Union differ in terms of their ideology and UN voting
+  compared to countries that were not part of the Soviet Union.  The
+  former Soviet Union countries are: Estonia, Latvia, Lithuania,
+  Belarus, Moldova, Ukraine, Armenia, Azerbaijian, Georgia,
+  Kazakhstan, Kyrgyzstan, Tajikistan, Uzbekistan, and Russia.  The
+  `%in%` operator, which is used as `x %in% y`, may be
+  useful.  This operator returns a logical vector whose element is
+  `TRUE` (`FALSE`) if the corresponding element of vector
+  `x` is equal to a value contained in vector `y`.  Focus
+  on the most recently available UN data from 2012 and plot each
+  Post-Soviet Union state's ideal point against the percentage of its
+  votes that agree with the United States.  Compare the post Soviet
+  Union states, within the same plot, against the other countries.
+  Briefly comment on what you observe.
+
+## Question 5
+
+We have just seen that while some post-Soviet countries have
+  retained non-liberal ideologies, other post-Soviet countries were
+  much more liberal in 2012. Let's examine how the median ideal points
+  of Soviet/post-Soviet countries and all other countries has varied
+  over all the years in the data. Plot these median ideal points by
+  year.  Be sure to indicate 1989, the year of the fall of the Berlin
+  Wall, on the graph.  Briefly comment on what you observe.
+
+## Question 6
+
+Following the end of communism, countries that were formerly
+  part of the Soviet Union have become much more ideologically
+  diverse. Is this also true of the world as a whole? In other words,
+  do countries still divide into two ideological factions? Let's
+  assess this question by applying the `k`-means clustering algorithm
+  to ideal points and the percentage of votes agreeing with the
+  US. Initiate the algorithm with just two centroids and visualize the
+  results separately for 1989 and 2012.  Briefly comment on the
+  results.
+  
+## Question 7
+
+We saw earlier that the median post-Soviet country joined the
+  liberal cluster after the fall of communism.  Which countries,
+  possibly from outside the Soviet Union, followed suit?  Conversely,
+  are there countries that exited the liberal cluster after the end of
+  communism? Identify the countries which were in the non-liberal
+  cluster in 1989 but belonged to the liberal cluster in 2012. Again,
+  the `%in%` operator may be useful.  Then, do the reverse, so
+  that you can see which countries exited the liberal cluster. Briefly
+  comment on what you observe.
+

@@ -1,0 +1,86 @@
+---
+title: "Supreme Court Citation Network"
+output:
+  pdf_document: default
+  html_document: default
+header-includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancypagestyle{plain}{\pagestyle{fancy}}
+  - \fancyhead[L]{}
+  - \fancyhead[C]{This material should not be shared beyond those who are enrolled in this class}
+---
+
+The constitution of the U.S. left unclear the role and authority of the federal judiciary. The Supreme Court had gradually established its own decisional legitimacy by strengthening the norm of *stare decisis*, a legal principle that requires the court's rulings to be grounded in the preceding decisions. The justices of the Supreme Court cite relevant precedents to justify their logics. Therefore, in the development of the U.S. laws, it's important to understand which cases critically shaped the later court rulings. In this exercise, we will anlyze the relation among the Supreme Court's decisions and its changes in the American legal history.  
+
+This exercise is based on:
+
+Fowler, J. H., T. R. Johnson, J. F. Spriggs, S. Jeon, and P. J. Wahlbeck. 2006. “[Network Analysis and the Law: Measuring the Legal Importance of Precedents at the U.S. Supreme Court.](http://dx.doi.org/10.1093/pan/mpm011)” *Political Analysis* 15(3): 324–46.
+
+and 
+
+Fowler, James H., and Sangick Jeon. 2008. “[The Authority of Supreme Court Precedent.](http://dx.doi.org/10.1016/j.socnet.2007.05.001)” *Social Networks* 30(1): 16–30.
+
+The data in `judicial.csv` represents Supreme Court cases with variables 
+
+--------------------------------------------------------------------------------
+ Name                 Description
+ -------------------- ----------------------------------------------------------
+ `caseid`	            unique numerical id given to each case
+ 
+ `usid`               US Reporter id (or numerical equivalent for early Reporters)
+ 
+ `parties`           	Names of parties to case
+ 
+ `year`               Year that the case was decided by the Supreme Court
+ 
+ `oxford`            	Does case appear on Oxford list of salient cases? (Yes = 1, No = 0)
+ 
+ `liihc`	            Does case appear on Legal Information Institute's list of important 
+                      cases? (Yes = 1, No = 0)
+--------------------------------------------------------------------------------
+
+The data in `citation.csv` contains information about citation with variables:
+
+--------------------------------------------------------------------------------
+ Name                 Description
+ -------------------- ----------------------------------------------------------
+ `citing.id`	        The `caseid` of the citing case
+ 
+ `cited.id`           The `caseid` of the cited case
+--------------------------------------------------------------------------------
+
+## Question 1
+
+The original authors used `caseid` which they arbitrarily created for convenience, but matching US Reporter ID will allow us to identify cases more easily. After you load `citation.csv`, add following four new columns to it: `citing.usid`, `cited.usid`, `citing.year`, and `cited.year`. You should match the caseid of 'citation.txt' with the caseid of 'judicial.csv'.  
+
+Hint : Use `merge` to match on `caseid`.
+
+## Question 2
+
+We first examine 'the degree distribution of a network', that is, the variation in the total number of inward and outward citations. Using a package `igraph`, calculate the inward degrees and the outward degrees of each Supreme Court case. Plot the histogram with 50 bins respectively, mark the five quantile values with vertical lines. What are the characteristics of the degree distributions? 
+
+## Question 3
+
+In 19th Century, justices started to actively implement the norm of *stare decisis* by citing relevant precedent cases. Prior cases were considered as a guideline of legal decisions and the Court justified their power based on the consistency with the existing cases. However, U.S. legal history witnessed a noticeable deviation from this trend during the period when Earl Warren was the Chief Justice of the Supreme Court; we refer to this period as the *'Warren Court'* (1953-1969). 
+
+Plot the average inward citations and outward citations per case by year. Add two vertical lines to mark the start and the end of the Warren Court. Is there any distinctive feature during the Warren Court compared to the previous or later period? Give a brief interpretation.
+
+## Question 4
+
+Now, let's examine which cases are most influential in the U.S. legal history. We will compare inward degrees with PageRank. Compute PageRank score of the Supreme Court cases with regard to the entire network. 
+
+Identify the top 10 most important cases based on PageRank score and inward degree respectively. Are there common cases in both lists? How many inward citations did PageRank top 10 cases receive? Add brief comment on the result.
+
+## Question 5
+
+Examine the validity of PageRank score and Inward degree by comparing them with legal experts' qualitative evaluations. In our data `judicial.csv`, the column `oxford` and `liihc` are binary indicators about whether a case is marked as important by *The Oxford Guide to United State Supreme Court Decisions(Hall, 1999)* and *Legal Information Insitute* respectively. Report how many cases in PageRank list and inward degree list were marked as important in qualitative evaluation separately. How would you interpret the overlap/difference between experts' evaluation and our lists base on the centrality measures??
+
+## Question 6
+
+This time, we will try to track the impact of one landmark case, *Brown vs. Board of Education 347 U.S. 483 (1954)* along the time line using the centrality measures. *Brown vs. Board of Education* is considered as one of the most critical decisions in U.S. Civil Rights history. This case declared that racial segregation in public schools by state laws was unconstitutional. 
+
+Interestingly, a network *evolves*. That is, new cases are accumulated every year and therefore the centrality measures which are context dependent is expected to vary along the time line. Here, you need to partition the network data at the end of each year and repeat the same analysis. You can do it by building a `for` loop.
+
+Plot the inward degrees starting from the decision year of the brown case(1954). Do you find any noticeable feature from the plot? What's the time trend of inward degree in this case? How reflective of the legal importance of the Brown case is this plot? Give substantive interpretation.  
+

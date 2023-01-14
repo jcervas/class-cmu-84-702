@@ -1,0 +1,114 @@
+---
+title: "School closure and the spread of COVID-19 in Japan"
+output: 
+  pdf_document: default
+  html_document: default
+header-includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancypagestyle{plain}{\pagestyle{fancy}}
+  - \fancyhead[L]{}
+  - \fancyhead[C]{This material should not be shared beyond those who are enrolled in this class}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(broom)
+library(knitr)
+```
+
+
+Since 2020, COVID-19 pandemic has disrupted and transformed human society and behavior in major ways. The governments around the world have also tried to implement various policies to tackle the spread of the coronavirus, despite the debate on the efficacy of such policies. Social scientists have also been interested in quantifying the effects of COVID-19 policy on reducing the infected cases, given important policy implications. We will look into Japan's school closures, as a form of non-pharmaceutical intervention (NPI), to tackle the spread of COVID-19 in the early 2020. This exercise is based on the following study: 
+
+Fukumoto, K., McClean, C.T. & Nakagawa, K. [No causal effect of school closures in Japan on the spread of COVID-19 in spring 2020.](https://doi.org/10.1038/s41591-021-01571-8) *Nature Medicine 27*, 2111–2119 (2021)
+
+To address the potential confounding bias caused by the absence of randomized treatment assignment, the authors of this observational study used a statistical method called "matching."  Matching methods utilize an algorithm to match each treated unit with a control unit that has the most similar pre-treatment characteristics. Then, one computes the causal effects using matched units alone while dropping the unmatched observations from the data set. The question of how exactly matching can be done is beyond the scope of this exercise. Instead, we take the matched control units as given and analyze the resulting data set.  
+
+The data file `covid.csv` is the original (unmatched) data set, whereas the data file `gm.csv` is the data set where each treated unit is matched with a control unit. Note that the `covid.csv` data file contains information for 739 Japanese municipalities whereas `gm.csv` contains 355 municipalities. Although the original study deals with eight treatment variables, representing school closures on March 4, 16, April 6, 10, 16, 22, May 11, and June 1, 2020, this exercise focuses on the school closure of April 6 as the only treatment variable.  If this treatment variable equals 1, it means that in a given municipality all elementary and junior high schools are closed as of the survey date, and 0 if they are open.
+
+The names and descriptions of variables in both data sets are:
+
+--------------------------------------------------------------------------------
+ Name                         Description
+ ---------------------------  --------------------------------------------------
+ `municipality_code`          Municipality
+ 
+ `labor`                      Labor Force (2015)
+ 
+ `elder.pop`                  Elderly Population (65 and older) (2015)
+ 
+ `hospitals`                  Density Index of Hospitals (2017)
+ 
+ `elementary`                 Population Density Index of Elementary School Students (2018)
+ 
+ `junior`                     Population Density Index of Junior High School Students (2018)
+ 
+ `prec_mean`                  Average Precipitation (average between 1981–2010)
+ 
+ `log.number`                 Number of Bordering Municipalities (2020)
+ 
+ `age.0406`                   Mayor's Age (as of 2020.04.06)
+ 
+ `shutdown.0406`              Treatment Variable (treatment status on the 6th April)
+ 
+ `X2020.X.XX`                 Number of Infections per 100,000 Municipal Residents on                                
+                              Day XX Month X Year 2020
+--------------------------------------------------------------------------------
+
+
+\newpage    
+## Question 1 
+
+Respectively for the matched and unmatched data sets, investigate whether there are any systematic differences in the distribution of the following pre-treatment variables (**Density Index of Hospitals**, **Population Density Index of Elementary and Junior High School Students**) between the municipalities that had or had not closed schools on April 6, as indicated by the treatment variable `shutdown.0406`?
+
+a) Compute the means of the listed pre-treatment variables (for **Population Density Index of Elementary and Junior High School Students** create a new variable named `students` by adding `elementary` and `junior` together) for municipalities that introduced school closure interventions on April 6 and those that did not (make sure you repeat the analysis using unmatched and matched data sets). 
+
+b) Create two pairs of quantile-quantile plots (Q-Q plots) to assess the similarity of the distributions for the treatment and control group across the two pre-treatment variables (`hospitals` and `students`), respectively for both matched and unmatched data sets.
+
+c) Interpret the results. Are there any consistent patterns of differences between the two groups of municipalities? For each variable, are there differences in the distribution between the matched and unmatched data sets? What do the plots tell you about our ability to make causal inferences regarding the effect of school closure as a form of non-pharmaceutical intervention on the COVID-19 infections?
+
+## Question 2
+
+We further examine whether there are any clear differences between those municipalities that did close down the schools and those that did not on April 6. Apply the $k$-means algorithm with two clusters to the following set of variables (`shutdown.0406`, `elder.pop`, `labor`, `hospitals`, `students`, `prec_mean`, `log.number`, `age.0406`) with the unmatched data first, and then repeat the analysis with the matched data. Be sure to remove any missing values and scale each variable so that their means are zero and standard deviations are one, before applying the algorithm. Are the cluster memberships associated with the treatment variables? How do they differ between the two data sets? What do your findings suggest about the ability to draw causal inference from these observational data?
+
+## Question 3 
+
+We estimate the average treatment effect of school closure on the number of COVID-19 cases using the difference-in-means estimator. 
+
+a) Use the unmatched data to compute the difference-in-means estimate by comparing the municipalities that had school closures on April 6 with those that did not (use the outcome data from March 30 to April 27). 
+
+b) Compute the same difference-in-means estimate for the same time period but using the matched data. How does this estimate compare with the one based on the unmatched data?
+
+c) Explain the reasons why each estimate might be biased by describing the required assumptions and potential scenarios that lead to their violation. 
+
+## Question 4
+
+The difference-in-differences (DiD) is a popular research design that allows one to conduct causal inference with observational data even in the presence of unobserved time-invariant confounding. We use the DiD to estimate the average causal effect of school closure on the number of COVID-19 cases per 100,000 municipal residents in Japanese municipalities. 
+
+a) To examine the average causal effect one week after the treatment, compute the DiD estimate with March 30 as the pre-treatment date and April 13 as the post-treatment date using the matched data. Remember the quantity of interest under DiD is the sample average treatment effect for the treated (SATT). Interpret the result and discuss the policy implications of the findings.
+
+b) Repeat the same analysis with the following extended pre-post treatment periods, and then plot all three DiD estimates on the y-axis (with the limits of $[-1, 1]$) against the x-axis as the number of weeks after the treatment date. Interpret the plot by stating the pattern of the estimates as the post-treatment period extends from 1 week to 3 weeks. 
+
+\begin{center}
+
+March 30 (pre-treatment) $\longrightarrow$ April 20 (post-treatment) (2 weeks after treatment)
+
+March 30 (pre-treatment) $\longrightarrow$ April 27 (post-treatment) (3 weeks after treatment)
+
+\end{center}
+
+c) Discuss the key assumption needed for the DiD design in the context of this study. Describe potential situations under which the assumption is violated. 
+
+d) Compute the DiD estimate for the period prior to the April 6 school closure by treating March 30 as the pre-treatment period and April 6 as the post-treatment period (between March 30 and April 6, there was no school closure), and separately for the matched and unmatched data. What do the results tell you about the credibility of the assumption in each data set?
+
+## Question 5
+
+Lastly, we examine the heterogeneity of treatment effects across different municipalities. For this question, use the matched data set only.
+
+a) Divide the municipalities that introduced the school closure interventions into three groups based on the **Population Density Index of Students**. Among these municipalities, the 'High exposure' group represents the group of municipalities whose student population density index is greater than or equal to the 75 percentile (among those that closed down the schools). In contrast, the 'Low exposure' group represents the group of municipalities whose student population density index is less than or equal to the 25 percentile (among those that closed down the schools).  
+
+b) Compute the standard DiD estimates as done in the previous question (use March 30 as the pre-treatment period and April 27 as the post treatment period), but separately for the 'High exposure' and 'Low exposure' groups as two treatment groups. As before, the control group is the municipalities that kept their schools open. 
+
+c) Interpret the results and discuss the heterogeneity of treatment effects. Are there other key pre-treatment variables that might help us identify treatment effect heterogeneity, and what might the substantive implications be? 
+
