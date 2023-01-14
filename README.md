@@ -1,16 +1,12 @@
 # Regression Analysis for Political Science [84-702] – Quantitative Social Science
 
-Jonathan Cervas
-
-Email: cervas@cmu.edu
-
+Prof. Jonathan Cervas 
+[Jonathan Cervas](mailto:Jonathan Cervas)  
+[http://jonathancervas.com]()  
 Location: POS 147 (Posner Hall)
-
 Time: Wednesdays 7:00p-9:50p Eastern
-
 Office Hours by appointment (arrange via email)
-
-(CMU Academic Calendar)
+[CMU Academic Calendar](https://www.cmu.edu/hub/calendar/)
 
 
 "_One can learn data analysis only by doing, not by reading_" - Kosuke Imai
