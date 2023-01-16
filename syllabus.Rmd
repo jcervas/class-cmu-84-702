@@ -4,8 +4,6 @@ author: "Prof. Jonathan Cervas"
 date: "`r Sys.Date()`"
 output:
   pdf_document: default
-  html_document:
-    df_print: paged
 ---
 
 ```{r setup, include=FALSE}
