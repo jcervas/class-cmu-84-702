@@ -117,7 +117,7 @@ Below is the schedule for the semester with the topic, reading, and swirl tutori
 | 13    | 4/19    | Inference: Uncertainty in Regression                                   | QSS 7.3        | 16    |
 | 14    | 4/26    | Review and Wrap-up                                                     |                | 17    |
 
-Additional Resources: 
+## Additional Resources: 
 
 - Gelman, Andrew, Jennifer Hill, and Aki Vehtari. 2020. Regression and Other Stories. Cambridge: Cambridge University Press. https://www.cambridge.org/core/books/regression-and-other-stories/DD20DD6C9057118581076E54E40C372C    
 
