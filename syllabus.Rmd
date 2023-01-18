@@ -8,13 +8,13 @@ author:
     orcid_id: 0000-0001-9686-6308
     affiliation: Postdoctoral Fellow, Carnegie Mellon University
 output:
+  md_document:
+    variant: gfm
   pdf_document:
     citation_package: natbib
     keep_tex: false
     fig_caption: true
     latex_engine: pdflatex
-  md_document:
-    variant: gfm
 bibliography: /Users/cervas/Downloads/library.bib
 csl: /Users/cervas/Zotero/styles/bluebook-inline.csl
 geometry: margin=1in
@@ -88,7 +88,7 @@ install_course_github("kosukeimai", "qss-swirl") # install the course
 ## Problem Sets    
 To only read about data science is about as useful as reading the entire DMV handbook and memorizing all state driving laws, and then to show up to a Formula 1 race expecting to win. You need to drive.    
 
-Thus, in this course, you will have problem sets to complete throughout the semester that will give you an opportunity to apply the statistical techniques you are learning. They will usually be focused on data analysis in general and will often involve a real dataset. I encourage students to rely on peer working groups as they work on these questions, but each student will submit their own work individually. We will have class time to work on these. These problems can be found the the end of each chapter in QSS.    
+Thus, in this course, you will have problem sets to complete throughout the semester that will give you an opportunity to apply the statistical techniques you are learning. They will usually be focused on data analysis in general and will often involve a real dataset. I encourage students to rely on peer working groups as they work on these questions, but each student will submit their own work individually. We will have class time to work on these. These problems can be found the the end of each chapter in QSS. You will turn in the problem set in the form of a ".Rmd" file on Canvas by Sunday at 11:59pm.
 
 ## Exam Problem Sets    
 Similar to the problem sets that we will work on as a class, you will also on two occasions be assigned problem sets to work on individually.    
@@ -111,7 +111,7 @@ Below is the schedule for the semester with the topic, reading, and swirl tutori
 
 - complete the readings by Wednesday;
 - complete the tutorials by Wednesday evening at 7pm; and
-- submit the problem set or exam by Friday at 11:59pm.
+- submit the problem set or exam by Sunday at 11:59pm.
 
 | Week  | Date    | Topic                                                                  | Reading        | Swirl |
 |-------|---------|------------------------------------------------------------------------|----------------|-------|

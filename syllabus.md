@@ -131,7 +131,8 @@ analysis in general and will often involve a real dataset. I encourage
 students to rely on peer working groups as they work on these questions,
 but each student will submit their own work individually. We will have
 class time to work on these. These problems can be found the the end of
-each chapter in QSS.
+each chapter in QSS. You will turn in the problem set in the form of a
+“.Rmd” file on Canvas by Sunday at 11:59pm.
 
 ## Exam Problem Sets
 
@@ -170,7 +171,7 @@ problem sets, found on Canvas under ‘Assignments’. You should generally:
 
 - complete the readings by Wednesday;
 - complete the tutorials by Wednesday evening at 7pm; and
-- submit the problem set or exam by Friday at 11:59pm.
+- submit the problem set or exam by Sunday at 11:59pm.
 
 | Week | Date    | Topic                                                                 | Reading       | Swirl |
 |------|---------|-----------------------------------------------------------------------|---------------|-------|
