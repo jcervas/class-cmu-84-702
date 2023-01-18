@@ -6,9 +6,5 @@ Time: Wednesdays 7:00p-9:50p Eastern
 Office Hours by appointment (arrange via email)  
 [CMU Academic Calendar](https://www.cmu.edu/hub/calendar/)
 
-|                                                                                             |
-|---------------------------------------------------------------------------------------------|
-| THIS SYLLABUS IS A WORK IN PROGRESS. CHANGES ARE LIKELY TO AFFECT THE SCHEDULE AFTER WEEK 1 |
-
 “*One can learn data analysis only by doing, not by reading*” - Kosuke
 Imai
