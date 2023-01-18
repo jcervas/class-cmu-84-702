@@ -8,13 +8,13 @@ author:
     orcid_id: 0000-0001-9686-6308
     affiliation: Postdoctoral Fellow, Carnegie Mellon University
 output:
-  md_document:
-    variant: gfm
   pdf_document:
     citation_package: natbib
     keep_tex: false
     fig_caption: true
     latex_engine: pdflatex
+  md_document:
+    variant: gfm
 bibliography: /Users/cervas/Downloads/library.bib
 csl: /Users/cervas/Zotero/styles/bluebook-inline.csl
 geometry: margin=1in
@@ -59,7 +59,7 @@ Our primary text will be Quantitative Social Science: An Introduction by Kosuke 
 
 |   |
 |---|
-| Unfortunately, I can not find QSS online, so you likely will have to buy a copy. You can use [this link to access](https://drive.google.com/file/d/0B92WBf4tMjgseHJLRUNIR3dJR2M/view?usp=sharing&resourcekey=0-5QXUDD-rICQZHOZO8Tsmvw) a pre-release version of the book. I highly recommend purchasing a new copy, which has subsequently been updated. Also, the Hunt Library has placed the book on reserve for our use this semester. |   
+|  You can use [this link to access](https://drive.google.com/file/d/0B92WBf4tMjgseHJLRUNIR3dJR2M/view?usp=sharing&resourcekey=0-5QXUDD-rICQZHOZO8Tsmvw) a pre-release version of the book. |   
 
 ## Grading   
 I care the most about what you learn, not what numerical/letter summary of that learning you get at the end of the semester. So I would love to not have grades at all, but the university does not agree. Thus, we have grades to help encourage you to put effort into learning the course material, and to satisfy the university overlords.    
