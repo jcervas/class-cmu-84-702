@@ -79,9 +79,9 @@ assignments and Problem Sets to Canvas, but you can also download all
 the files as a ZIP at
 <https://press.princeton.edu/student-resources/quantitative-social-science>
 
-|                                                                                                                                                                                                                                                                                                                                                          |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| You can use [this link to access](https://drive.google.com/file/d/0B92WBf4tMjgseHJLRUNIR3dJR2M/view?usp=sharing&resourcekey=0-5QXUDD-rICQZHOZO8Tsmvw) a pre-release version of the book. I highly recommend purchasing a new copy, which has subsequently been updated. Also, the Hunt Library has placed the book on reserve for our use this semester. |
+|                                                                                                                                                                                          |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| You can use [this link to access](https://drive.google.com/file/d/0B92WBf4tMjgseHJLRUNIR3dJR2M/view?usp=sharing&resourcekey=0-5QXUDD-rICQZHOZO8Tsmvw) a pre-release version of the book. |
 
 ## Grading
 

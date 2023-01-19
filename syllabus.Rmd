@@ -6,14 +6,13 @@ author:
   - name: Prof. Jonathan Cervas
     url: http://jonathancervas.com
     orcid_id: 0000-0001-9686-6308
-    affiliation: Postdoctoral Fellow, Carnegie Mellon University
+    affiliation: Carnegie Mellon University
 output:
+  md_document:
+    variant: gfm
   pdf_document: 
     citation_package: natbib
     fig_caption: yes
-    template: rmd-latex.template
-  md_document:
-    variant: gfm
 bibliography: /Users/cervas/Downloads/library.bib
 csl: /Users/cervas/Zotero/styles/bluebook-inline.csl
 geometry: margin=1in
