@@ -1,6 +1,6 @@
 ---
 title: "Regression Analysis for Political Science II"
-School: Carnegie Mellon University
+school: Carnegie Mellon University
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 author:
   - name: Prof. Jonathan Cervas
@@ -8,11 +8,10 @@ author:
     orcid_id: 0000-0001-9686-6308
     affiliation: Postdoctoral Fellow, Carnegie Mellon University
 output:
-  pdf_document:
+  pdf_document: 
     citation_package: natbib
-    keep_tex: false
-    fig_caption: true
-    latex_engine: pdflatex
+    fig_caption: yes
+    template: rmd-latex.template
   md_document:
     variant: gfm
 bibliography: /Users/cervas/Downloads/library.bib
