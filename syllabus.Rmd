@@ -1,7 +1,7 @@
 ---
 title: "Regression Analysis for Political Science II"
 school: Carnegie Mellon University
-date: "`r format(Sys.time(), '%B %d, %Y')`"
+date: "Last updated: `r format(Sys.time(), '%B %d, %Y')`"
 author:
   - name: Prof. Jonathan Cervas
     url: http://jonathancervas.com
