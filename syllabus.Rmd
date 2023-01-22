@@ -13,6 +13,9 @@ output:
   pdf_document: 
     citation_package: natbib
     fig_caption: yes
+  html_document:
+    theme: yeti
+    highlight: textmate
 bibliography: /Users/cervas/Downloads/library.bib
 csl: /Users/cervas/Zotero/styles/bluebook-inline.csl
 geometry: margin=1in
