@@ -35,7 +35,7 @@ reports, and in academic research.
 This course is required for all CMU MS-IRP students. It is the second
 half of a two-part sequence on methods. The work in this course
 reinforces that of RAPS I, and will move beyond the basics into more
-advance technics for understanding data. In addition to Ordinary Least
+advance techniques for understanding data. In addition to Ordinary Least
 Squares regression, we will consider models for different types of
 dependent variables (logit, probit, etc). We will also address missing
 data problems, text as data, spatial data, experimental designs,
