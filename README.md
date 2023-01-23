@@ -8,3 +8,5 @@ Office Hours by appointment (arrange via email)
 
 “*One can learn data analysis only by doing, not by reading*” - Kosuke
 Imai
+
+Syllabus: https://jcervas.github.io/class-cmu-84-702/syllabus
