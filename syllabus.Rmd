@@ -23,6 +23,7 @@ geometry: margin=1in
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+## rmarkdown::render('/Users/cervas/Library/CloudStorage/GoogleDrive-jcervas@uci.edu/My Drive/GitHub/teaching/classes/class-cmu-84-702/syllabus.Rmd', output_format = 'all')
 ```
 
 Jonathan Cervas   
