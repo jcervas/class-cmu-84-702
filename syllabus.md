@@ -98,7 +98,7 @@ The course grade will be a weighted average of the following components:
 | Category              | Percent of Final Grade |
 |-----------------------|------------------------|
 | Participation         | 15%                    |
-| Problem Sets (\~10)   | 40%                    |
+| Problem Sets (~10)    | 40%                    |
 | Exam Problem Sets (2) | 10%                    |
 | Final Project         | 35%                    |
 
@@ -173,23 +173,23 @@ problem sets, found on Canvas under ‘Assignments’. You should generally:
 - complete the tutorials by Wednesday evening at 7pm; and
 - submit the problem set or exam by Sunday at 11:59pm.
 
-| Week | Date    | Topic                                                                 | Reading       | Swirl |
-|------|---------|-----------------------------------------------------------------------|---------------|-------|
-| 0    | 1/18    | Introduction                                                          | QSS 1.1-1.4   | 1,2   |
-| 1    | 1/25    | Causality: Randomized Experiments                                     | QSS 2.1-2.4   | 3     |
-| 2    | 2/1     | Causality: Observational Studies                                      | QSS 2.5-2.6   | 4     |
-| 3    | 2/8     | Measurement: Descriptive Statistics                                   | QSS 3.1-3.3   | 5     |
-| 4    | 2/15    | Measurement: Sampling & Bivariate Statistics                          | QSS 3.4-3.6   | 6     |
-| 5    | 2/22    | Prediction: Elections & Regression                                    | QSS 4.1-4.2.3 | 7     |
-| 6    | 3/1     | Prediction: More Regression Prediction: Interactions & Nonlinearities | QSS 4.2.4-4.3 | 8,9   |
-| 7    | **3/8** | **NO CLASS**                                                          |               |       |
-| 8    | 3/15    | Discovery: Textual & Network Data                                     | QSS 5.1-5.2   | 10,11 |
-| 9    | 3/22    | Discovery: Spatial Data                                               | QSS 5.3       | 12    |
-| 10   | 3/29    | Probability: Basics                                                   | QSS 6.1-6.2   | 13    |
-| 11   | 4/5     | Probability: Random Variables & Large Samples                         | QSS 6.3-6.4   | 14    |
-| 12   | 4/12    | Inference: Hypothesis Testing & Estimation                            | QSS 7.1-7.2   | 15    |
-| 13   | 4/19    | Inference: Uncertainty in Regression                                  | QSS 7.3       | 16    |
-| 14   | 4/26    | Review and Wrap-up                                                    |               | 17    |
+| Week | Date    | Topic                                                                 | Reading     | Swirl |
+|------|---------|-----------------------------------------------------------------------|-------------|-------|
+| 0    | 1/18    | Introduction                                                          | QSS 1.1-1.4 | 1,2   |
+| 1    | 1/25    | Causality: Randomized Experiments                                     | QSS 2.1-2.4 | 3     |
+| 2    | 2/1     | Causality: Observational Studies                                      | QSS 2.5-2.6 | 4     |
+| 3    | 2/8     | Measurement: Descriptive Statistics                                   | QSS 3.1-3.3 | 5     |
+| 4    | 2/15    | Measurement: Sampling & Bivariate Statistics                          | QSS 3.4-3.6 | 6     |
+| 5    | 2/22    | Exam Problem Set One Presentations                                    |             |       |
+| 6    | 3/1     | Prediction: More Regression Prediction: Interactions & Nonlinearities | QSS 4.1-4.3 | 7-9   |
+| 7    | **3/8** | **NO CLASS**                                                          |             |       |
+| 8    | 3/15    | Discovery: Textual, Network Data, & Spatial Data                      | QSS 5.1-5.3 | 10-12 |
+| 10   | 3/22    | Probability: Basics                                                   | QSS 6.1-6.2 | 13    |
+| 11   | 3/29    | Probability: Random Variables & Large Samples                         | QSS 6.3-6.4 | 14    |
+| 12   | 4/5     | Inference: Hypothesis Testing & Estimation                            | QSS 7.1-7.2 | 15    |
+| 13   | 4/12    | Inference: Uncertainty in Regression                                  | QSS 7.3     | 16    |
+| 14   | 4/19    | Problem Set Two Presentations                                         |             |       |
+| 14   | 4/26    | Review and Wrap-up                                                    |             | 17    |
 
 ## Additional Resources:
 
